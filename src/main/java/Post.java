@@ -7,7 +7,7 @@ import java.util.List;
  */
 
 @NamedQueries({
-        @NamedQuery(name = Post.GET_SUM_POSTS_NORWAY, query = "select sum(p) from Post p where p.author.address.country = 'Norway'")
+        @NamedQuery(name = Post.GET_SUM_POSTS_NORWAY, query = "select sum(p.id) from Post p where p.author.address.country = 'Norway'")
 })
 
 @Entity

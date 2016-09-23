@@ -6,8 +6,9 @@ import javax.persistence.*;
 
 @NamedQueries({
         @NamedQuery(name = User.GET_ALL_COUNTRIES, query = "select distinct u.address.country from User u"),
-        @NamedQuery(name = User.GET_SUM_USERS_NORWAY, query = "select sum(u) from User u where u.address.country = 'Norway'"),
-        @NamedQuery(name = User.GET_SUM_USERS, query = "select sum(u) from User u")
+        @NamedQuery(name = User.GET_SUM_USERS_NORWAY, query = "select sum(u.id) from User u where u.address.country = 'Norway'"),
+        @NamedQuery(name = User.GET_SUM_USERS, query = "select sum(u.id) from User u"),
+        @NamedQuery(name = User.GET_ALL, query = "select u from User u")
 })
 
 @Entity
@@ -16,6 +17,7 @@ public class User {
     public static final String GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
     public static final String GET_SUM_USERS = "GET_SUM_USERS";
     public static final String GET_SUM_USERS_NORWAY = "GET_SUM_USERS_NORWAY";
+    public static final String GET_ALL = "GET_ALL";
 
     @Id
     @GeneratedValue
